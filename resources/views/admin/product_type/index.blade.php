@@ -7,20 +7,18 @@
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/admin">後臺</a></li>
-        <li class="breadcrumb-item active" aria-current="page">商品管理</li>
+        <li class="breadcrumb-item"><a href="/admin/product_type/index ">後臺</a></li>
+        <li class="breadcrumb-item active" aria-current="page">產品類別管理</li>
     </ol>
 </nav>
 
-<a href="/admin/product/create" class="btn btn-success mb-3">新增商品</a>
+<a href="/admin/product_type/create" class="btn btn-success mb-3">新增產品</a>
 
 <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>標題</th>
-            <th>圖片</th>
-            <th>副標題</th>
-            <th>created_at</th>
+            <th>產品名稱</th>
+            <th>排序</th>
             <th width="80">功能</th>
         </tr>
     </thead>
@@ -35,7 +33,7 @@
                 <td>{{$news->created_at}}</td>
                 <td>
                     <a href="/admin/news/edit/{{$news->id}}" class="btn btn-sm btn-primary">編輯</a>
-                    <button class="btn btn-danger btn-sm btn-delete" data-newsid="{{$news->id}}">刪除</button>
+                    {{-- <button class="btn btn-danger btn-sm btn-delete" data-newsid="{{$news->id}}">刪除</button> --}}
                 </td>
             </tr>
         @endforeach

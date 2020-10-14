@@ -53,4 +53,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('product/edit/{product_id}','productController@edit');
     Route::post('product/update/{product_id}','productController@update');
     Route::get('product/destroy/{product_id}','productController@destroy');
+
+    Route::resource('product_type', 'productTypeController');
 });

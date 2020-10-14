@@ -35,7 +35,10 @@
                             <a class="nav-link" href="/admin/news">最新消息管理</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">產品管理</a>
+                            <a class="nav-link" href="/admin/product_type">產品類別管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/product">商品管理</a>
                         </li>
 
                     </ul>

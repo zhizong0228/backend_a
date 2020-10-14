@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\products;
 use App\productType;
+use Illuminate\Http\Request;
 
-
-class productController extends Controller
+class productTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,10 @@ class productController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $news_list = products::all();
-        // $types = productType::all();
+    {
+        $news_list = productType::all();
+        return view('admin.product_type.index',compact('news_list'));
         // dd($news_list);
-        return view('admin.product.index',compact('news_list'));
-
     }
 
     /**
@@ -29,7 +26,7 @@ class productController extends Controller
      */
     public function create()
     {
-        return redirect('/admin/product/create');
+        return view('admin.product_type.create');
     }
 
     /**
@@ -40,7 +37,17 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+
+        if($request->hasFile('image_url')) {
+            $file = $request->file('image_url');
+            $path = $this->fileUpload($file,'news');
+            $requestData['image_url'] = $path;
+        }
+
+        productType::create($requestData);
+
+        return redirect('/admin/product_type');
     }
 
     /**
