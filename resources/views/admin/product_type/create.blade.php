@@ -13,9 +13,9 @@
     </ol>
 </nav>
 
-<form method="POST" action="/admin/product_type/store" enctype="multipart/form-data">
+<form method="GET" action="/admin/product_type/store" enctype="multipart/form-data">
     @csrf
-    @method('PUT')
+    {{-- @method('PUT') --}}
     <div class="form-group">
         <label for="title">
             標題

@@ -17,25 +17,27 @@
 <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>標題</th>
+            <th>名稱</th>
             <th>圖片</th>
-            <th>副標題</th>
-            <th>created_at</th>
+            <th>價錢</th>
+            <th>介紹內容</th>
+            <th>上架日期</th>
             <th width="80">功能</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($news_list as $news)
+        @foreach ($news_list as $product)
             <tr>
-                <td>{{$news->title}}</td>
+                <td>{{$product->name}}</td>
                 <td>
-                    <img width="200" src="{{$news->image_url}}" alt="">
+                    <img width="200" src="{{$product->product_image}}" alt="">
                 </td>
-                <td>{{$news->sub_title}}</td>
-                <td>{{$news->created_at}}</td>
+                <td>{{$product->price}}</td>
+                <td>{{$product->info}}</td>
+                <td>{{$product->created_at}}</td>
                 <td>
-                    <a href="/admin/news/edit/{{$news->id}}" class="btn btn-sm btn-primary">編輯</a>
-                    <button class="btn btn-danger btn-sm btn-delete" data-newsid="{{$news->id}}">刪除</button>
+                    <a href="/admin/product/edit/{{$product->id}}" class="btn btn-sm btn-primary">編輯</a>
+                    <button class="btn btn-danger btn-sm btn-delete" data-newsid="{{$product->id}}">刪除</button>
                 </td>
             </tr>
         @endforeach
@@ -71,7 +73,7 @@
                     // 'Your file has been deleted.',
                     // 'success'
                     // )
-                    window.location.href = `/admin/news/destroy/${news_id}`;
+                    window.location.href = `/admin/product/destroy/${news_id}`;
 
                     }
                 })

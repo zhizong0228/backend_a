@@ -25,8 +25,11 @@ class productTypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
-        return view('admin.product_type.create');
+        $product_type = productType::all();
+        // dd($product_type);
+        return view('admin/product_type.create');
     }
 
     /**
@@ -41,7 +44,7 @@ class productTypeController extends Controller
 
         if($request->hasFile('image_url')) {
             $file = $request->file('image_url');
-            $path = $this->fileUpload($file,'news');
+            $path = $this->fileUpload($file,'product_type');
             $requestData['image_url'] = $path;
         }
 
