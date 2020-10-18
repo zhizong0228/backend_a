@@ -11,4 +11,7 @@ class products extends Model
     protected $fillable = [
         'name', 'product_image', 'price', 'info','info_image','date','type_id'
     ];
+    public function product_type(){
+        return $this->belongsTo('App\productType')
+    }
 }
